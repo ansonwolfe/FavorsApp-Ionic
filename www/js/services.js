@@ -32,10 +32,10 @@ angular.module('starter.services', [])
 
   // Some fake testing data
   var favors = [
-    { id: 0, name: 'Sergey Bin', role: 'gave', description: 'Picked him up from airport in heavy snowstorm up in Chicago.', date: '12/4/2013' },
-    { id: 1, name: 'Page Larry', role: 'received', description: 'Sent me a wonderful sweater on Christmas.', date: '1/1/2014' },
-    { id: 2, name: 'Barry Obama', role: 'gave', description: 'Found him his campaign manager who got him his social networking presence.', date: '1/3/2014'  },
-    { id: 3, name: 'Mike Zuckerbug', role: 'gave', description: 'That was my idea.', date: '1/15/2014'  }
+    { id: 0, name: 'Sergey Bin', role: 'Gave', description: 'Picked him up from airport in heavy snowstorm up in Chicago.', date: '12/4/2013' },
+    { id: 1, name: 'Page Larry', role: 'Received', description: 'Sent me a wonderful sweater on Christmas.', date: '1/1/2014' },
+    { id: 2, name: 'Barry Obama', role: 'Gave', description: 'Found him his campaign manager who got him his social networking presence.', date: '1/3/2014'  },
+    { id: 3, name: 'Mike Zuckerbug', role: 'Gave', description: 'That was my idea.', date: '1/15/2014'  }
   ];
 
   return {
