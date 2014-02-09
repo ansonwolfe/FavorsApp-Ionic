@@ -1,0 +1,68 @@
+
+
+
+<view title="'Favors App'">
+  <content has-header="true" has-tabs="true">
+
+    
+    <div class="list">
+        <div class="item item-divider">
+          Favor Details
+        </div>
+        <label class="item item-input">
+          <span class="input-label">Favor Date</span>
+          <input type="date">
+        </label>
+
+<!--     <div class="item item-divider">
+    To / From:
+    </div> -->
+      <label class="item item-radio">
+        <input type="radio" name="favorType">
+        <div class="item-content">
+          <i class="icon ion-ios7-partlysunny-outline"></i>  Did a favor for:
+        </div>
+        <i class="radio-icon ion-checkmark"></i>
+      </label>
+
+      <label class="item item-radio">
+        <input type="radio" name="favorType">
+        <div class="item-content">
+          <i class="icon ion-ios7-cloudy-night-outline"></i>   Received a favor from:
+        </div>
+        <i class="radio-icon ion-checkmark"></i>
+      </label>
+
+    <!-- pull contacts list from phone -->
+    <div class="row item">
+      <select class="item col-90">
+        <option>Select a Contact</option>
+        <option>Mark Twain</option>
+        <option>Robert Frost</option>
+        <option>Jack London</option>
+        <option>Virginia Woolf</option>
+      </select>
+    </div>
+    <!-- end contact list -->
+    <div class="item item-divider">
+      Description
+    </div>
+<!--       <label class="item item-input item-stacked-label"> Description: -->
+        <textarea placeholder="Rick gave an excellent pitch for my project..."></textarea>
+<!--       </label> -->
+<!-- stars -->
+  <div class="item item-divider">
+    Rate favor
+  </div>
+  <div class="item range range-balanced">
+    <i class="icon ion-ios7-star-outline"></i>
+    <input type="range" name="stars" min="0" max="5">
+    <i class="icon ion-ios7-star"></i>  <i class="icon ion-ios7-star"></i>  <i class="icon ion-ios7-star"></i>
+  </div>
+
+
+
+
+    </div>
+  </content>
+</view>

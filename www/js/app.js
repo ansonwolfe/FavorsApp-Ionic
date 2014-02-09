@@ -77,7 +77,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       url: '/about',
       views: {
         'about-tab': {
-          templateUrl: 'templates/users/registration.html'
+          templateUrl: 'templates/favors/new.html'
         }
       }
     });
@@ -86,6 +86,16 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
   $urlRouterProvider.otherwise('/tab/pets');
 
 });
+
+
+// declaring up Angularfire as dependency for Firebase hookup
+var myApp = angular.module("MyApp", ["firebase"]);
+ 
+function MyController($scope, $firebase) {
+  var peopleRef = new Firebase("https://flickering-fire-7558.firebaseio.com/people");
+  // Automatically syncs everywhere in realtime
+  $scope.people = $firebase(peopleRef);
+}
 
 // setting buttons on navbar
 // $scope.leftButtons = [
@@ -96,4 +106,6 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 //     }
 //   }
 // ]
+
+
 

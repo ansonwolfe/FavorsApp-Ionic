@@ -27,3 +27,41 @@ angular.module('starter.controllers', [])
   // "Pets" is a service returning mock data (services.js)
   $scope.favor = FavorService.get($stateParams.favorId);
 });
+
+
+ function MyController($scope, $firebase) {
+  var peopleRef = new Firebase("https://flickering-fire-7558.firebaseIO.com/people");
+  $scope.people = $firebase(peopleRef);
+  $scope.addPerson = function() {
+    // AngularFire $add method
+    $scope.people.$add($scope.newPerson);
+    //or add a new person manually
+    peopleRef.update({name: 'Alex', age: 35});
+ 
+    $scope.newPerson = "";
+  }
+}
+
+// testing books controller
+var myapp = angular.module('myapp', ['firebase']);
+
+myapp.controller('BookCtrl', ['$scope', 'angularFire',
+  function BookCtrl($scope, angularFire) {
+    var url = 'https://flickering-fire-7558.firebaseIO.com/';
+    var promise = angularFire(url, $scope, 'books', []);
+    $scope.newBook = {};
+
+    promise.then(function() {
+      startWatch($scope);
+    });
+  }
+]);
+
+function startWatch($scope) {
+  $scope.add = function() {
+    console.log($scope.newBook);
+    $scope.books.push($scope.newBook);
+    $scope.newBook = '';
+  }
+}
+
