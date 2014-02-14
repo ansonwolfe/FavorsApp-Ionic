@@ -8,7 +8,9 @@
     <list>
       <item ng-repeat="pet in pets" type="item-text-wrap" href="#/tab/pet/{{pet.id}}">
         <h3>{{pet.title}}</h3>
-        <p>{{pet.description}}</p>
+<!--         <p>{{pet.description}}</p> -->
+        <p>{{pet.owes}}</p>
+        <p>{{pet.received}}</p>
         </item>
       </item>
     </list>

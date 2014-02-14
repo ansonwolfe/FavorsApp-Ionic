@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
+angular.module('favorsapp', ['ionic'])
 
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -17,86 +17,84 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
   $stateProvider
 
     // setup an abstract state for the tabs directive
-    .state('tab', {
-      url: "/tab",
+    .state('favorsapp', {
+      url: "/",
       abstract: true,
-      templateUrl: "templates/tabs.html"
+      templateUrl: "/templates/tabs.html",
+      controller: 'appController'
     })
 
-    // the pet tab has its own child nav-view and history
-    .state('tab.pet-index', {
-      url: '/pets',
-      views: {
-        'pets-tab': {
-          templateUrl: 'templates/pet-index.html',
-          controller: 'PetIndexCtrl'
-        }
-      }
-    })
-
-    .state('tab.pet-detail', {
-      url: '/pet/:petId',
-      views: {
-        'pets-tab': {
-          templateUrl: 'templates/pet-detail.html',
-          controller: 'PetDetailCtrl'
-        }
-      }
-    })
-    // favors index with its own child nav-view and history
-    .state('tab.favor-index', {
+    // Overview tab with child view and history
+    .state('favorsapp.favor-overview', {
       url: '/favors',
       views: {
-        'favors-tab': {
-          templateUrl: 'templates/favors/favors-index.html',
+        'favors-overview-tab': {
+          templateUrl: '/templates/favors/favor-overview.html',
           controller: 'FavorIndexCtrl'
         }
       }
     })
+//     .state('favorsapp.favor-overview.favor-contact-overview', {
+//       url: '/favor/:favorName',
+//       views: {
+//         'favors-overview-tab': {
+//           templateUrl: 'templates/favors/favors-contact-overview.html',
+//           controller: 'FavorContactOverview'
+//         }
+//       }
+//     })
 
-    .state('tab.favor-detail', {
-      url: '/favor/:favorId',
-      views: {
-        'favors-tab': {
-          templateUrl: 'templates/favors/favor-detail.html',
-          controller: 'FavorDetailCtrl'
-        }
-      }
-    })
-// end favors index and detail child views
-    .state('tab.adopt', {
-      url: '/adopt',
-      views: {
-        'adopt-tab': {
-          templateUrl: 'templates/users/login.html'
-        }
-      }
-    })
+//     // favors index with its own child nav-view and history
+//     .state('tab.favor-index', {
+//       url: '/favors',
+//       views: {
+//         'favors-tab': {
+//           templateUrl: 'templates/favors/favors-index.html',
+//           controller: 'FavorIndexCtrl'
+//         }
+//       }
+//     })
 
-    .state('tab.about', {
-      url: '/about',
-      views: {
-        'about-tab': {
-          templateUrl: 'templates/favors/new.html'
-        }
-      }
-    });
+//     .state('tab.favor-detail', {
+//       url: '/favor/:favorId',
+//       views: {
+//         'favors-tab': {
+//           templateUrl: 'templates/favors/favor-detail.html',
+//           controller: 'FavorDetailCtrl'
+//         }
+//       }
+//     })
+// // end favors index and detail child views
+//     .state('tab.adopt', {
+//       url: '/adopt',
+//       views: {
+//         'adopt-tab': {
+//           templateUrl: 'templates/users/login.html'
+//         }
+//       }
+//     })
+
+//     .state('tab.new', {
+//       url: '/new',
+//       views: {
+//         'new-tab': {
+//           templateUrl: 'templates/favors/new.html'
+//         }
+//       }
+//     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/pets');
+  $urlRouterProvider.otherwise('/favors');
 
-});
+})
 
+.controller('appController', function($scope){
+  console.log('hello world')
+})
+.run(function(){
 
-// declaring up Angularfire as dependency for Firebase hookup
-var myApp = angular.module("MyApp", ["firebase"]);
- 
-function MyController($scope, $firebase) {
-  var peopleRef = new Firebase("https://flickering-fire-7558.firebaseio.com/people");
-  // Automatically syncs everywhere in realtime
-  $scope.people = $firebase(peopleRef);
-}
-
+  console.log('app run')
+})
 // setting buttons on navbar
 // $scope.leftButtons = [
 //   { 

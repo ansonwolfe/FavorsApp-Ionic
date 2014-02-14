@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('favorsapp.services', [])
 
 /**
  * A simple example service that returns some data.
@@ -8,10 +8,10 @@ angular.module('starter.services', [])
 
   // Some fake testing data
   var pets = [
-    { id: 0, title: 'Cats', description: 'Furry little creatures. Obsessed with plotting assassination, but never following through on it.' },
-    { id: 1, title: 'Dogs', description: 'Lovable. Loyal almost to a fault. Smarter than they let on.' },
-    { id: 2, title: 'Turtles', description: 'Everyone likes turtles.' },
-    { id: 3, title: 'Sharks', description: 'An advanced pet. Needs millions of gallons of salt water. Will happily eat you.' }
+    { id: 0, title: 'Barry Obama', description: 'Furry little creatures. Obsessed with plotting assassination, but never following through on it.', owes: 'Owes you 3 favors', received: 'Got 1 favor from you' },
+    { id: 1, title: 'Sergey Bin', description: 'Lovable. Loyal almost to a fault. Smarter than they let on.', owes: 'Owes you 3 favors', received: 'Got 3 favors from you' },
+    { id: 2, title: 'Page Larry', description: 'Everyone likes turtles.', owes: 'Owes you 0 favors', received: 'Got 1 favor from you' },
+    { id: 3, title: 'Mike Zuckerbug', description: 'An advanced pet. Needs millions of gallons of salt water. Will happily eat you.', owes: 'Owes you 1 favor', received: 'Got 1 favor from you' }
   ];
 
   return {
@@ -50,6 +50,9 @@ angular.module('starter.services', [])
     get: function(favorId) {
       // Simple index lookup
       return favors[favorId];
+    },
+    count: function(){
+      return favors.length;
     }
   }
 });
