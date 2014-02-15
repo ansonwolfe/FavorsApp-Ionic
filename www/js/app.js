@@ -21,17 +21,34 @@ var favorsApp = angular.module('favorsApp', ['ionic', 'favorsApp.controllers','f
   // Each state's controller can be found in controllers.js
   $stateProvider
 
- 
-  .state('home',{
-    url : "/home",
-   controller : 'LoginController',
-    templateUrl : 'templates/main.html'
-  })
+
   .state('login',{
     url : "/login",
    controller : 'LoginController',
     templateUrl : 'templates/users/login.html'
   })
+ 
+  .state('app',{
+    url : "/home",
+   controller : 'LoginController',
+    templateUrl : 'templates/main.html'
+  })
+  
+  .state('app.favors',{
+    url : '/favors',
+    templateUrl : 'templates/favors/favors-list.html'
+  })
+
+  // .state('app.overview',{
+  //   url : '/overview',
+  //   templateUrl : 'templates/favors/favors-list.html'
+  // })
+
+  // .state('app.reports',{
+  //   url : '/reports',
+  //   templateUrl : 'templates/favors/favors-list.html'
+  // })
+
     
 
 
@@ -43,7 +60,7 @@ var favorsApp = angular.module('favorsApp', ['ionic', 'favorsApp.controllers','f
 
     if(user){
 
-        $state.transitionTo('home')
+        $state.transitionTo('app.favors')
     }
     else{
 

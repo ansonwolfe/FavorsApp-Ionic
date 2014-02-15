@@ -10,7 +10,7 @@ favorsApp.controller('LoginController',function($scope,$state,UserAuth){
 
     UserAuth.login($scope.userObject).then(function(user){
 
-      $state.transitionTo('home')
+      $state.transitionTo('app.favors')
 
     },function(err){
 
@@ -29,12 +29,15 @@ favorsApp.controller('LoginController',function($scope,$state,UserAuth){
   $scope.register = function(){
     UserAuth.register($scope.userObject).then(function(user){
 
-      $state.transitionTo('home')
+      $state.transitionTo('favors')
     })
 
   }
- 
-
 
 })
 
+favorsApp.controller('FavorNewController',function($scope){})
+
+favorsApp.controller('FavorListController',function($scope){})
+
+favorsApp.controller('FavorDetailController',function($scope){})

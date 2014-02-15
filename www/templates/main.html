@@ -5,25 +5,28 @@
   navigation history that also transitions its views in and out.
 -->
 <view>
- 
-<tabs tabs-style="tabs-icon-top" tabs-type="tabs-default">
+ <header-bar
+ title="'Favors'"
 
-
-  <!-- Pets Tab -->
-  <tab title="Favor List" icon="icon ion-home" ui-sref="app">
-    <nav-view"favor-list-tab"></nav-view>
-  </tab>
-
-  <tab title="Favor List" icon="icon ion-home" ui-sref="app">
-    <nav-view name="settings-tab"></nav-view>
-  </tab>
-
- 
+ type="bar-positive"
+ align-title="center">
+</header-bar>
 
 
 
+<nav-view></nav-view>
 
-</tabs>
 
+<div class="tabs">
+  <a class="tab-item" ui-sref="app.favors">
+    Favors
+  </a>
+  <a class="tab-item" ui-sref="app.favors">
+    Favorites
+  </a>
+  <a class="tab-item">
+    Settings
+  </a>
+</div>
 </view>
 
