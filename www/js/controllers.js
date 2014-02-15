@@ -29,15 +29,52 @@ favorsApp.controller('LoginController',function($scope,$state,UserAuth){
   $scope.register = function(){
     UserAuth.register($scope.userObject).then(function(user){
 
-      $state.transitionTo('favors')
+      $state.transitionTo('app.favors')
     })
 
   }
 
 })
 
-favorsApp.controller('FavorNewController',function($scope){})
 
-favorsApp.controller('FavorListController',function($scope){})
 
-favorsApp.controller('FavorDetailController',function($scope){})
+favorsApp.controller('FavorListController',function($scope,FavorStore){
+
+  FavorStore.then(function(store){
+    $scope.favors = store;
+
+  })
+
+
+  
+ 
+
+
+})
+
+
+favorsApp.controller('FavorNewController',function($scope,$state,FavorStore){
+
+   FavorStore.then(function(store){
+    $scope.favors = store;
+    console.log($scope.favors)
+  })
+
+   $scope.newFavor = {}
+
+   $scope.saveNewFavor = function(){
+
+    $scope.newFavor.date = new Date()
+
+    $scope.favors.$add($scope.newFavor)
+
+    $state.transitionTo('app.favors')
+
+   }
+
+})
+
+
+favorsApp.controller('FavorDetailController',function($scope){
+  
+})

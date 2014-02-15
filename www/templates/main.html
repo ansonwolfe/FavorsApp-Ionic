@@ -4,13 +4,15 @@
   Each tab's child <nav-view> directive will have its own 
   navigation history that also transitions its views in and out.
 -->
-<view>
+
  <header-bar
  title="'Favors'"
-
+ right-buttons="rightButtons"
  type="bar-positive"
  align-title="center">
 </header-bar>
+<view>
+
 
 
 
@@ -21,8 +23,8 @@
   <a class="tab-item" ui-sref="app.favors">
     Favors
   </a>
-  <a class="tab-item" ui-sref="app.favors">
-    Favorites
+  <a class="tab-item" ui-sref="app.newFavor">
+    Add Favor
   </a>
   <a class="tab-item">
     Settings

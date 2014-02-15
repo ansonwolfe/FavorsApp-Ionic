@@ -1,11 +1,15 @@
 angular.module('favorsApp.services',['firebase'])
 
 
+.value('fireBaseUrl',"https://torid-fire-4559.firebaseio.com/")
+
+
+
 //our wrapper around the main firebase reference. this is probably overkill, but it helps understand how services interoperate..
-.factory('FireBase',function($firebase){
+.factory('FireBase',function($firebase,fireBaseUrl){
 
   //private ref to firebase
-  var fireBase = new Firebase("https://favors.firebaseio.com/");
+  var fireBase = new Firebase(fireBaseUrl);
 
 
   //return it 
@@ -22,17 +26,6 @@ angular.module('favorsApp.services',['firebase'])
 
   //private storage of our firebase auth object
   var firebaseAuth = $firebaseSimpleLogin(FireBase);
-
-
-  //wrappers for firebase login services
-
-
-  function loginFlow(){
-
-  }
-
-
-
 
   //this should return a promise
   function logIntoFireBase(userData){
@@ -86,12 +79,39 @@ angular.module('favorsApp.services',['firebase'])
 
   return {
 
-    startLoginFlow : loginFlow,
     user : firebaseAuth.user,
     login : logIntoFireBase,
     register : registerNewUser,
     getLoggedInUser : firebaseAuth.$getCurrentUser
 
   }
+
+})
+
+
+
+.factory('FavorStore',function($q,$firebase,FireBase,UserAuth,fireBaseUrl){
+
+
+    var deferredStore = $q.defer()
+
+    var user = UserAuth.getLoggedInUser()
+
+  
+    user.then(function(user){
+
+      var userPath = 'users/' + user.id + '/favors'
+
+      var userStore = new Firebase(fireBaseUrl + userPath)
+
+      deferredStore.resolve($firebase(userStore))
+    })
+    
+
+    return deferredStore.promise;
+
+
+
+
 
 })

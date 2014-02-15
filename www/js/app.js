@@ -36,7 +36,20 @@ var favorsApp = angular.module('favorsApp', ['ionic', 'favorsApp.controllers','f
   
   .state('app.favors',{
     url : '/favors',
-    templateUrl : 'templates/favors/favors-list.html'
+    templateUrl : 'templates/favors/favors-list.html',
+    controller : 'FavorListController'
+  })
+
+  .state('app.newFavor',{
+    url : '/newFavor',
+    templateUrl : 'templates/favors/new.html',
+    controller : 'FavorNewController'
+  })
+
+  .state('app.favors.detail',{
+    url : '/:favorId',
+    templateUrl : 'templates/favors/favor-detail.html',
+    controller : 'FavorDetailController'
   })
 
   // .state('app.overview',{
